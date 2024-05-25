@@ -7,7 +7,7 @@ public class UserUtility {
     private List<User> users = new ArrayList<>();
     private Map<User, String> loggedUsers = new HashMap<>();
 
-    // Private static instance of the singleton class
+
     private static UserUtility instance;
 
     private UserUtility() {}
@@ -46,4 +46,25 @@ public class UserUtility {
         }
         return sb.toString();
     }
+
+    public boolean removeAccount(String login) {
+        User userToRemove = null;
+        for (User user : users) {
+            if (user.getLogin().equals(login)) {
+                userToRemove = user;
+                break;
+            }
+        }
+        if (userToRemove != null) {
+            users.remove(userToRemove);
+            loggedUsers.remove(userToRemove);
+            System.out.println("User account removed!");
+            return true;
+        } else {
+            System.out.println("User not found!");
+            return false;
+        }
+
+    }
+
 }

@@ -13,6 +13,24 @@ public class Manager extends User implements UserActions{
     @Override
     public void register() {
         UserUtility.getInstance().register(super.getLogin(),super.getPassword());
+    }
+
+    // TODO: 25.05.2024 eq class tutaj tez
+    public void addProduct(String name,Double pricePerDay){
+        ProductDatabase.getInstance().addProduct(new Product(name,pricePerDay));
+    }
+
+    public void fireTechnician(String loginOfTechnician){
+        UserUtility.getInstance().removeAccount(loginOfTechnician);
 
     }
+
+
+
+
+
+
+
+
+
 }
