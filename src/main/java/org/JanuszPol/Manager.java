@@ -17,6 +17,8 @@ public class Manager extends User implements UserActions{
 
     // TODO: 25.05.2024 eq class tutaj tez
     public void addProduct(String name,Double pricePerDay){
+
+
         ProductDatabase.getInstance().addProduct(new Product(name,pricePerDay));
     }
 

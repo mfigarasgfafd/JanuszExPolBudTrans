@@ -27,6 +27,11 @@ public class Customer extends User implements UserActions {
     }
 
 
+    public void browseCatalog(){
+        ProductCatalog.displayCatalog();
+    }
+
+
 
 
 }

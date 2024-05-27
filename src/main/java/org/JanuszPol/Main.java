@@ -8,9 +8,27 @@ public class Main {
     public static void main(String[] args) {
         Calendar calendar = new Calendar();
 
-        Technician tomek = new Technician("tomek1","123");
+        Manager tomek = new Manager("tomek1","123");
         tomek.register();
         tomek.login();
+        tomek.addProduct("koparka",20.20);
+        tomek.addProduct("dźwig",23.1);
+        tomek.addProduct("betoniarka",4.20);
+
+        System.out.println(tomek.getSessionCode());
+
+
+        ProductCatalog.displayCatalog();
+        System.out.println();
+        ProductCatalog.sortByName();
+        ProductCatalog.displayCatalog();
+        System.out.println();
+        ProductCatalog.sortByPrice();
+        ProductCatalog.displayCatalog();
+
+
+
+
 
 
 

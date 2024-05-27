@@ -25,12 +25,7 @@ public class ProductDatabase {
     }
 
 
-
-
-
-
-
-
-
-
+    public List<Product> getProductList() {
+        return productList;
+    }
 }
