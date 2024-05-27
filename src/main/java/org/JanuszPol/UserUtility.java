@@ -19,8 +19,8 @@ public class UserUtility {
         return instance;
     }
 
-    public void register(String login, String password){
-        users.add(new User(login, password));
+    public void register(User user){
+        users.add(user);
         System.out.println("Register complete!");
     }
 
@@ -74,6 +74,16 @@ public class UserUtility {
             }
         }
         return false;
+    }
+
+    public User getUserByLogin(String login) {
+        for (User user : users) {
+            if (user.getLogin().equals(login)) {
+                return user;
+            }
+        }
+        System.out.println("User not found!");
+        return null;
     }
 
 

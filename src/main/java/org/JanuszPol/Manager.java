@@ -11,10 +11,7 @@ public class Manager extends User implements UserActions {
         return UserUtility.getInstance().login(super.getLogin(), super.getPassword());
     }
 
-    @Override
-    public void register() {
-        UserUtility.getInstance().register(super.getLogin(), super.getPassword());
-    }
+
 
     // Metoda addProduct z dwoma argumentami (name, pricePerDay)
     public void addProduct(String name, Double pricePerDay) { // 2 wartosci constructor
