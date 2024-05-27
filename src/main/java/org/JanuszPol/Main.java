@@ -46,7 +46,7 @@ public class Main {
 
         System.out.println(" testy tutaj : ");
 
-        Product testProduct = ProductCatalog.chooseProduct("buldożer");
+        Product testProduct = ProductCatalog.chooseProduct("betoniarka");
 
 
         if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
