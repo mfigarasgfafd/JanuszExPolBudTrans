@@ -29,6 +29,13 @@ public class ProductDatabase {
         return productList;
     }
 
-// TODO: TUTAJ 
-public Product getProductByName(String name){}
+    public Product getProductByName(String name){
+        for (Product product : productList) {
+            if (product.getName().equals(name)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
 }

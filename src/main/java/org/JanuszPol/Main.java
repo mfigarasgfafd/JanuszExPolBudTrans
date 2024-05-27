@@ -27,7 +27,7 @@ public class Main {
         tomek.addProduct("koparka",20.20);
         tomek.addProduct("dźwig",23.1);
         tomek.addProduct("betoniarka",4.20);
-        tomek.addProduct("buldożer",123.4, 10);
+        tomek.addProduct("buldożer",123.4, 2);
 
         // IMPORTANT: kiedy dodajesz produkt bez amount in stock to ustawia sie na 1 (nwm dlaczego nie dziala jak sie na 0 ustawiało, ale jak liczba ZEJDZIE do 0 to działa wtedy???)
 
@@ -44,10 +44,10 @@ public class Main {
         // TODO: menu, get konkretny produkt z katalogu zeby to jakos zwracalo produkt który można użyć jako jakis np. chosenProduct i wtedy rezerwacja tak samo jak na dole testProduct jest
 
 
-
         System.out.println(" testy tutaj : ");
 
-        Product testProduct = new Product("testProduct", 12.34, 2);
+        Product testProduct = ProductCatalog.chooseProduct("buldożer");
+
 
         if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
             calendar.reserveTime(testProduct, timeStart, timeEnd);

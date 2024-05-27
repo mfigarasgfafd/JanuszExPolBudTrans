@@ -21,7 +21,9 @@ public class ProductCatalog {
         productDatabase.getProductList().sort(Comparator.comparing(Product::getPricePerDay));
     }
 
-
+    public static Product chooseProduct(String name){
+        return productDatabase.getProductByName(name);
+    }
 
 
 
