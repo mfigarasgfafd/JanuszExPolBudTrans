@@ -28,7 +28,26 @@ public class Customer extends User implements UserActions {
 
 
     public void browseCatalog(){
-        ProductCatalog.displayCatalog();
+        if (UserUtility.getInstance().isLoggedIn(super.getLogin())){
+            ProductCatalog.displayCatalog();
+        }
+        else System.out.println("user not logged in");
+    }
+    public void sortCatalogName(){
+
+        if (UserUtility.getInstance().isLoggedIn(super.getLogin())){
+            ProductCatalog.sortByName();
+        }
+        else System.out.println("user not logged in");
+
+    }
+    public void sortCatalogPrice(){
+
+        if (UserUtility.getInstance().isLoggedIn(super.getLogin())){
+            ProductCatalog.sortByPrice();
+        }
+        else System.out.println("user not logged in");
+
     }
 
 

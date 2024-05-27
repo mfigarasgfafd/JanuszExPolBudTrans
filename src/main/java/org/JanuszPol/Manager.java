@@ -14,24 +14,20 @@ public class Manager extends User implements UserActions{
     public void register() {
         UserUtility.getInstance().register(super.getLogin(),super.getPassword());
     }
-
     // TODO: 25.05.2024 eq class tutaj tez
     public void addProduct(String name,Double pricePerDay){
-
-
-        ProductDatabase.getInstance().addProduct(new Product(name,pricePerDay));
+        if (UserUtility.getInstance().isLoggedIn(super.getLogin())){
+            ProductDatabase.getInstance().addProduct(new Product(name,pricePerDay));
+        }
+        else System.out.println("user not logged in");
     }
-
     public void fireTechnician(String loginOfTechnician){
-        UserUtility.getInstance().removeAccount(loginOfTechnician);
 
+        if (UserUtility.getInstance().isLoggedIn(super.getLogin())){
+            UserUtility.getInstance().removeAccount(loginOfTechnician);
+        }
+        else System.out.println("user not logged in");
     }
-
-
-
-
-
-
 
 
 

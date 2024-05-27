@@ -67,5 +67,14 @@ public class UserUtility {
 
     }
 
+    public boolean isLoggedIn(String login) {
+        for (User user : loggedUsers.keySet()) {
+            if (user.getLogin().equals(login)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

@@ -17,14 +17,15 @@ public class Main {
 
         System.out.println(tomek.getSessionCode());
 
+        Customer franek = new Customer("franek420","2131321");
+        franek.register();
+        franek.login();
 
-        ProductCatalog.displayCatalog();
+
+        franek.browseCatalog();
         System.out.println();
-        ProductCatalog.sortByName();
-        ProductCatalog.displayCatalog();
-        System.out.println();
-        ProductCatalog.sortByPrice();
-        ProductCatalog.displayCatalog();
+
+
 
 
 
