@@ -28,4 +28,7 @@ public class ProductDatabase {
     public List<Product> getProductList() {
         return productList;
     }
+
+// TODO: TUTAJ 
+public Product getProductByName(String name){}
 }
