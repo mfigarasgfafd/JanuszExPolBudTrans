@@ -4,9 +4,11 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
+        TechnicianTODO technicianTODO = new TechnicianTODO();
         Product tempProduct = null;
         Scanner scanner = new Scanner(System.in);
         Calendar calendar = new Calendar();
@@ -44,6 +46,8 @@ public class Main {
         franek.browseCatalog();
         System.out.println();
 
+        technicianTODO.addProblem("test1", "test descr");
+
             // TODO: log in
         String response = "";
         boolean running=true;
@@ -53,7 +57,10 @@ public class Main {
             System.out.println("0 - log in ");
             System.out.println("1 - show catalog");
             System.out.println("2 - rent");
-            System.out.println("3 - add product [manager only]");
+            System.out.println("3 - report a problem");
+            System.out.println("4 - add product [manager only]");
+            System.out.println("5 - display current problems");
+            System.out.println("6 - solve problem [technician only]");
             response = scanner.nextLine();
             switch (response) {
                 case "0":
@@ -78,7 +85,38 @@ public class Main {
 
                     break;
                 case "3":
+                    System.out.println("model name: ");
+                    String modelName = scanner.nextLine();
+                    System.out.println("provide information about the problem: ");
+                    String description = scanner.nextLine();
+
+                    technicianTODO.addProblem(modelName, description);
+
+                    // y
+                    technicianTODO.displayProblems();
+                    break;
+                case "4":
                     System.out.println("add product syntax");
+                    break;
+                case "5":
+                    technicianTODO.displayProblems();
+                    break;
+                case "6":
+                    System.out.println("problem ID: ");
+                    String uuidInput = scanner.nextLine();
+
+                    try {
+                        UUID uuid = UUID.fromString(uuidInput);
+                        TechnicianTODO.Problem problem = technicianTODO.getProblemById(uuid);
+                        if (problem != null) {
+                            System.out.println("Znaleziono problem: " + problem.getDescription());
+                        } else {
+                            System.out.println("Nie znaleziono problemu o podanym UUID.");
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Wprowadzono nieprawidłowy format UUID.");
+                    }
+
                     break;
                 default:
                     running=false;
@@ -115,12 +153,6 @@ public class Main {
 
 
         } ;
-
-
-
-
-
-
 
 
     }

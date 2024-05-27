@@ -50,6 +50,10 @@ public class Customer extends User implements UserActions {
 
     }
 
+    public void reportFaulty(){
+
+    }
+
 
 
 

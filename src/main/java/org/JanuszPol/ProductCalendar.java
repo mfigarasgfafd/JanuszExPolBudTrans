@@ -19,8 +19,8 @@ public class ProductCalendar {
         return reservations.getOrDefault(dayKey, 0) < 1;
     }
 
-    // Metoda do anulowania rezerwacji produktu na dany dzień
-    public void cancelReservation(String dayKey) {
+    // -1
+    public void takeBack(String dayKey) {
         reservations.computeIfPresent(dayKey, (k, v) -> v > 1 ? v - 1 : null);
     }
 

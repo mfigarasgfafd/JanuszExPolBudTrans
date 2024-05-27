@@ -14,4 +14,7 @@ public class Technician extends User implements UserActions{
         UserUtility.getInstance().register(super.getLogin(),super.getPassword());
 
     }
+
+
+
 }
