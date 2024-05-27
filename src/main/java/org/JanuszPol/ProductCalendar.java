@@ -28,4 +28,8 @@ public class ProductCalendar {
     public int getReservedAmount(String dayKey) {
         return reservations.getOrDefault(dayKey, 0);
     }
+
+
+
+
 }

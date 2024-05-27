@@ -3,9 +3,12 @@ package org.JanuszPol;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Product tempProduct = null;
+        Scanner scanner = new Scanner(System.in);
         Calendar calendar = new Calendar();
         // potrzebne
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -41,36 +44,74 @@ public class Main {
         franek.browseCatalog();
         System.out.println();
 
-        // TODO: menu, get konkretny produkt z katalogu zeby to jakos zwracalo produkt który można użyć jako jakis np. chosenProduct i wtedy rezerwacja tak samo jak na dole testProduct jest
+            // TODO: log in
+        String response = "";
+        boolean running=true;
+        while(running) {
+
+            System.out.println("-----------MENU------------");
+            System.out.println("0 - log in ");
+            System.out.println("1 - show catalog");
+            System.out.println("2 - rent");
+            System.out.println("3 - add product [manager only]");
+            response = scanner.nextLine();
+            switch (response) {
+                case "0":
+                    System.out.println("log in tutaj !");
+                    break;
+                case "1":
+                    franek.browseCatalog();
+                    break;
+                case "2":
+                    System.out.println("provide model name: ");
+                    String line = scanner.nextLine();
+
+                    tempProduct = ProductCatalog.chooseProduct(line);
+
+                    if(!calendar.checkIfBusy(tempProduct, timeStart, timeEnd)){
+                        calendar.reserveTime(tempProduct, timeStart, timeEnd);
+                        System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
+                    } else {
+                        // jesli zajety --> jakas wiadomosc 🕋
+                        System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
+                    }
+
+                    break;
+                case "3":
+                    System.out.println("add product syntax");
+                    break;
+                default:
+                    running=false;
+            }}
 
 
-        System.out.println(" testy tutaj : ");
-
-        Product testProduct = ProductCatalog.chooseProduct("betoniarka");
-
-
-        if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
-            calendar.reserveTime(testProduct, timeStart, timeEnd);
-            System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
-        } else {
-            // jesli zajety --> jakas wiadomosc 🕋
-            System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
-        }
-
-        if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
-            calendar.reserveTime(testProduct, timeStart, timeEnd);
-            System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
-        } else {
-            // jesli zajety --> jakas wiadomosc 🕋
-            System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
-        }
-        if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
-            calendar.reserveTime(testProduct, timeStart, timeEnd);
-            System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
-        } else {
-            // jesli zajety --> jakas wiadomosc 🕋
-            System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
-        }
+//        System.out.println(" testy tutaj : ");
+//
+//        Product testProduct = ProductCatalog.chooseProduct("betoniarka");
+//
+//
+//        if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
+//            calendar.reserveTime(testProduct, timeStart, timeEnd);
+//            System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
+//        } else {
+//            // jesli zajety --> jakas wiadomosc 🕋
+//            System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
+//        }
+//
+//        if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
+//            calendar.reserveTime(testProduct, timeStart, timeEnd);
+//            System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
+//        } else {
+//            // jesli zajety --> jakas wiadomosc 🕋
+//            System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
+//        }
+//        if(!calendar.checkIfBusy(testProduct, timeStart, timeEnd)){
+//            calendar.reserveTime(testProduct, timeStart, timeEnd);
+//            System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
+//        } else {
+//            // jesli zajety --> jakas wiadomosc 🕋
+//            System.out.println("PRODUKT NIE JEST DOSTĘPNY W PODANYM OKRESIE CZASOWYM");
+//        }
 
 
         } ;
@@ -83,6 +124,7 @@ public class Main {
 
 
     }
+
 
 
 
