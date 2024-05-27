@@ -23,7 +23,7 @@ public class TechnicianTODO {
                 return problem;
             }
         }
-        return null; // lub rzucić wyjątek, jeśli preferujesz
+        return null;
     }
 
     public void solveProblem(Problem problem) {
@@ -37,7 +37,7 @@ public class TechnicianTODO {
         private String requestTime;
 
         public Problem(String modelName, String description) {
-            this.id = UUID.randomUUID(); // Automatyczne generowanie unikalnego ID
+            this.id = UUID.randomUUID();
             this.modelName = modelName;
             this.description = description;
             this.requestTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
