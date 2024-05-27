@@ -110,6 +110,7 @@ public class Main {
                         TechnicianTODO.Problem problem = technicianTODO.getProblemById(uuid);
                         if (problem != null) {
                             System.out.println("Znaleziono problem: " + problem.getDescription());
+                            technicianTODO.solveProblem(problem);
                         } else {
                             System.out.println("Nie znaleziono problemu o podanym UUID.");
                         }

@@ -37,7 +37,7 @@ public class TechnicianTODO {
         private String requestTime;
 
         public Problem(String modelName, String description) {
-            this.id = UUID.randomUUID(); // auto generate id
+            this.id = UUID.randomUUID();
             this.modelName = modelName;
             this.description = description;
             this.requestTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
