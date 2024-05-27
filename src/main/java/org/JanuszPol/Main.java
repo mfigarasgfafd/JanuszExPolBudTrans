@@ -14,6 +14,8 @@ public class Main {
         tomek.addProduct("koparka",20.20);
         tomek.addProduct("dźwig",23.1);
         tomek.addProduct("betoniarka",4.20);
+        tomek.addProduct("buldożer",123.4, 10);
+
 
         System.out.println(tomek.getSessionCode());
 
