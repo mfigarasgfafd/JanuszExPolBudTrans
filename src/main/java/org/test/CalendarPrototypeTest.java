@@ -1,6 +1,7 @@
 package org.test;
 
 import org.JanuszPol.Calendar;
+import org.JanuszPol.Product;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -12,7 +13,8 @@ public class CalendarPrototypeTest {
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     // przykladowe id do testu
-    int productId = 2137;
+        String productId = "test123";
+        Product testProduct = new Product("testProduct", 12.34, 20);
 
 
     // tutaj jest formatowanie daty --> przykładowe zarezerwowanie od - do
@@ -28,10 +30,10 @@ public class CalendarPrototypeTest {
     // przykłady praktyczne tutaj ============
 
     // test1 - sprawdzenie czy produkt jest dostępny w przedziale czasowym jak tak to rezerwacja
-    boolean isBusy = calendar.checkIfBusy(productId, timeStart, timeEnd);
+    boolean isBusy = calendar.checkIfBusy(testProduct, timeStart, timeEnd);
         if (!isBusy) {
         // jesli dostępny --> zrób rezerwacje
-        calendar.reserveTime(productId, timeStart, timeEnd);
+        calendar.reserveTime(testProduct, timeStart, timeEnd);
         System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
     } else {
         // jesli zajety --> jakas wiadomosc 🕋
@@ -39,10 +41,10 @@ public class CalendarPrototypeTest {
     }
 
         // tutaj test - próba zarezerwowania tak jak wcześniej identycznie - powinien oddać że nie jest dostępny
-    isBusy = calendar.checkIfBusy(productId, timeStart, timeEnd);
+    isBusy = calendar.checkIfBusy(testProduct, timeStart, timeEnd);
         if (!isBusy) {
             // jesli dostępny --> zrób rezerwacje
-            calendar.reserveTime(productId, timeStart, timeEnd);
+            calendar.reserveTime(testProduct, timeStart, timeEnd);
             System.out.println("PRODUKT ZAREZERWOWANY POMYSLNIE");
         } else {
             // jesli zajety --> jakas wiadomosc 🕋

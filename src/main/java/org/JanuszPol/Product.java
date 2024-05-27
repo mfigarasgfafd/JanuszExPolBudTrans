@@ -6,6 +6,7 @@ public class Product {
     // TODO: 25.05.2024 equipmentClass
     int amountInStock;
 
+    ProductCalendar productCalendar = new ProductCalendar();
     public Product(String name, Double pricePerDay, int amountInStock) {
         this.name = name;
         this.pricePerDay = pricePerDay;
@@ -14,8 +15,9 @@ public class Product {
     public Product(String name, Double pricePerDay) {
         this.name = name;
         this.pricePerDay = pricePerDay;
-        this.amountInStock = 0;
+        this.amountInStock = 1;
     }
+
 
     public Integer getAmountInStock(){
         return amountInStock;

@@ -17,7 +17,7 @@ public class Manager extends User implements UserActions {
     }
 
     // Metoda addProduct z dwoma argumentami (name, pricePerDay)
-    public void addProduct(String name, Double pricePerDay) {
+    public void addProduct(String name, Double pricePerDay) { // 2 wartosci constructor
         addProduct(name, pricePerDay, 0); // Wywołanie metody z trzema argumentami z domyślną wartością dla amountInStock
     }
 
