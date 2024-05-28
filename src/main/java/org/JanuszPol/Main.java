@@ -81,12 +81,13 @@ public class Main {
 
                     break;
                 case "1":
-                    if (currentUser instanceof Customer) ((Customer) currentUser).browseCatalog();
-                    else System.out.println("not a correct account");
+                    if (currentUser instanceof Customer) {
+                        ((Customer) currentUser).browseCatalog();
+                }else System.out.println("not a correct account");
                     break;
                 case "2":
 
-                    if (currentUser instanceof Customer){
+
                         System.out.println("provide model name: ");
                         String line = scanner.nextLine();
 
@@ -99,7 +100,7 @@ public class Main {
                             // jesli zajety --> jakas wiadomosc 🕋
                             System.out.println("product not available");
                         }
-                    }else System.out.println("not a correct account");
+
 
 
                     break;
@@ -178,10 +179,10 @@ public class Main {
                         if (choice == 1) {
                             temp = new Customer(tempLogin,tempPassword);
                         }
-                        if (choice == 1) {
+                        if (choice == 2) {
                             temp = new Technician(tempLogin,tempPassword);
                         }
-                        if (choice == 1) {
+                        if (choice == 3) {
                             temp = new Manager(tempLogin,tempPassword);
                         }
                         UserUtility.getInstance().register(temp);
